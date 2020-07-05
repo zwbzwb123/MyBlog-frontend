@@ -59,6 +59,7 @@
         methods: {
             getArticleCells(){
                 this.$http.get('/article/cells/'+this.page).then(res =>{
+                    console.log(res)
                     this.loading = false
                     if (res.data.articles == null){
                         this.noMoreData = true

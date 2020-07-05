@@ -18,7 +18,7 @@
           </el-main>
         </el-container>
       </el-container>
-      <el-footer>Footer</el-footer>
+      <el-footer></el-footer>
     </el-container>
   </div>
 </template>

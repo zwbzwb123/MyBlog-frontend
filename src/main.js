@@ -10,7 +10,7 @@ Vue.use(mavonEditor)
 Vue.config.productionTip = false
 
 Vue.prototype.$http=axios
-axios.defaults.baseURL = 'http://api.blog.com:80'
+axios.defaults.baseURL = 'http://121.199.47.217:80'
 
 
 new Vue({

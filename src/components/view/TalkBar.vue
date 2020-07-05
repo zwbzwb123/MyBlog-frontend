@@ -2,7 +2,7 @@
     <div class="talk-bar-container">
         <login-from @loginSuccess="loginSuccess" @cancle="cancle" :is-show="LoginFromShow" class="login"></login-from>
         <el-divider></el-divider>
-        <a @click="LoginFromShow = true" v-if="!isLogin">还没登陆？点击这里！</a>
+        <a @click="toLogin" v-if="!isLogin">还没登陆？点击这里！</a>
         <a v-if="isLogin">欢迎留言，{{user.username}}！</a>
         <comment-editor class="editor" :buttonText=" '发表' " @submit="publish"></comment-editor>
         <comment-box :comment="comment" v-for="comment in comments" :key="comment.id"></comment-box>
@@ -27,7 +27,7 @@
             }
         },
         props:{
-            nid:Number
+            nid:String
         },
         components:{
             LoginFrom,
@@ -62,14 +62,18 @@
                 console.log(this.user.username)
                 this.LoginFromShow = false
                 this.isLogin = true
+            },
+            toLogin(){
+                this.LoginFromShow = true
+                window.scrollTo(0,0)
             }
         },
         created() {
             this.$http.get('/comment/'+this.nid).then(res =>{
+                // res.data.comments.forEach( comment => {
+                //     comment.createTime = comment.createTime.substring(0,10)
+                // })
                 this.comments = res.data.comments
-                this.comments.forEach( comment => {
-                    comment.createTime = comment.createTime.substring(0,10)
-                })
             })
 
             this.user = JSON.parse(sessionStorage.getItem('user'))

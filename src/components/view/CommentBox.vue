@@ -21,6 +21,9 @@
         name: "CommentBox",
         props:{
             comment:{}
+        },
+        mounted() {
+            this.comment.createTime = this.comment.createTime.substring(0,10)
         }
     }
 </script>

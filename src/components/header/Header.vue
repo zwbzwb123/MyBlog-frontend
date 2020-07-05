@@ -1,7 +1,8 @@
 <template>
     <div class="header-container">
         <router-link to="/" class="logo-container">
-            <el-image class="logo" :src="src"></el-image>
+            <!--<el-image class="logo" :src="src"></el-image>-->
+            <img class="logo" src="../../assets/bg-img.jpg" >
             <span class="title">ZWB's Blog</span>
         </router-link>
         <i-input icon="ios-search" placeholder="搜索功能暂无实现，正在努力学习中..."  style="width: 300px"></i-input>
